@@ -1,0 +1,19 @@
+.headerColor{
+    background-color: #6389FB;
+}
+
+.brandOpacity{
+    opacity: 0.5;
+}
+.vr{
+    color:white;
+    opacity: 1;
+}
+#navbarScrollingDropdown{
+    color:white;
+    padding: 16px;
+}
+.searchPos{
+    top: 5px;
+    left: 3px; 
+}

@@ -1,0 +1,9 @@
+/* .gridclass{
+    display: grid;
+    grid-template-rows:auto 1fr;
+    grid-template-columns: auto 1fr;
+    
+} */
+.sidebgColor{
+    background-color: #E8E8E8;
+}
