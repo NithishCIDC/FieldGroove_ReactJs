@@ -40,7 +40,7 @@ const Login = () => {
                   <input type="email" />
                 </div>
                 <div className="vstack gap-2">
-                  <label>password</label>
+                  <label>Password</label>
                   <input type="password" />
                 </div>
                 <div className="hstack gap-2">

@@ -35,7 +35,7 @@ const Footer = () => {
         <Container className="px-5 py-3">
           <img src={Logo} alt="" />
           <Row
-            className="d-flex justify-content-between"
+            className="d-flex justify-content-between mt-2"
             style={{ fontSize: "14px" }}
           >
             <Col lg={4} className="text-justify text-secondary">
