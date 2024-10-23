@@ -1,0 +1,50 @@
+.navStyle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+  }
+  .navStyle > li {
+    cursor: pointer;
+  }
+  .navStyle > li:hover {
+    color: #f65a4d;
+  }
+  .blueBtn {
+    background-color: #3553ad !important;
+  }
+  .blueBtn:hover {
+    background-color: #f65a4d;
+  }
+  .Login {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+  }
+  .LoginBody {
+    background-image: url("./assets/images/bg.png");
+    background-position: 0 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .Logincol1 {
+    position: relative;
+    background-color: #182446;
+  }
+  .Logincol1::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    right: -30px;
+    height: 0px;
+    width: 0px;
+    border: solid 15px transparent;
+    border-left-color: #172648;
+    overflow: hidden;
+  }
+  .Logincol2 {
+    background-color: #f2f5f8;
+  }
+  .text-justify {
+    text-align: justify;
+  }
