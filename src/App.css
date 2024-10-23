@@ -105,7 +105,10 @@ input {
   color: #2e59b0;
   line-height: 1.3em;
 }
-.QuestionStyle > div > p1 {
+.QuestionStyle > div > h6 {
+  font-weight: bold;
+}
+.QuestionStyle > div > p {
   margin: 10px 0px 0px 0px;
   font-size: 16px;
   line-height: 25px;
@@ -121,4 +124,8 @@ input {
 }
 .HeaderDropdown > .dropdown-menu > .dropdown-item:hover {
   background-color: #f65a4d;
+}
+.errorStyle {
+  font-size: 14px;
+  color: rgb(201, 0, 0);
 }

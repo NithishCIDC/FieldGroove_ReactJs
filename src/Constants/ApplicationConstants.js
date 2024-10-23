@@ -11,3 +11,18 @@ export const LoginConstant=
     FooterEmail : "sales@fieldgroove.com",
     FooterPhone : "212-537-0218"
 }
+export const initialValue = {
+        firstname: "",
+        lastname: "",
+        companyname: "",
+        phone: "",
+        email: "",
+        password: "",
+        passwordagain: "",
+        timezone: "",
+        streetad1: "",
+        streetad2: "",
+        city: "",
+        state: "",
+        zip: "",
+    }

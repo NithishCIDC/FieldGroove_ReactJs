@@ -3,38 +3,41 @@ import { Formik, Form as FormikForm } from 'formik';
 import { useState } from 'react'
 import { Button, Carousel, Col, Form, Row } from 'react-bootstrap'
 import { ValidationSchema } from "./ValidationSchema"
+import { initialValue } from '../../../Constants/ApplicationConstants';
 
 const RegisterForm = () => {
+    const [formErrors, setformErrors] = useState();
     const [Index, setIndex] = useState(0);
-    const initialValue = {
-        firstname: "",
-        lastname: "",
-        companyname: "",
-        phone: "",
-        email: "",
-        password: "",
-        passwordagain: "",
-        timezone: "",
-        streetad1: "",
-        streetad2: "",
-        city: "",
-        state: "",
-        zip: "",
-    }
+    const handleValidation = async (values) => {
+        try {
+            await ValidationSchema.validate(values, { abortEarly: false });
+            setformErrors({});
+            return true;
+        } catch (error) {
+            console.log(error.inner);
+            const formattedErrors = {};
+            error.inner.forEach((err) => {
+                formattedErrors[err.path] = err.message;
+            });
+            setformErrors(formattedErrors);
+            return false;
+        }
+    };
     return (
         <Row className="d-flex justify-content-center">
             <Col xs={4} className="text-white py-5 Logincol1">
                 <Formik
                     initialValues={initialValue}
-                    validationSchema={ValidationSchema}
-
-                    onSubmit={(values, { setSubmitting }) => {
+                    // validationSchema={ValidationSchema}
+                    onSubmit={async (values, { setSubmitting }) => {
                         setSubmitting(false);
-                        console.log(values)
+                        const isValid = handleValidation(values);
+                        if (isValid)
+                            console.log(values)
                     }}
                 >
                     {({ values, handleChange, handleSubmit, isSubmitting }) => (
-                        <FormikForm onSubmit={handleSubmit}>
+                        <FormikForm>
                             <Carousel indicators={false} controls={false} activeIndex={Index}>
                                 <Carousel.Item className='px-4' style={{ height: "730px" }}>
                                     <div className="vstack gap-2 formRegister">
@@ -71,10 +74,12 @@ const RegisterForm = () => {
                                         </div>
                                         <div className="vstack">
                                             <Form.Label>Email</Form.Label>
-                                            <Form.Control type="email"
+                                            <Form.Control
+                                                type="text"
                                                 name="email"
                                                 onChange={handleChange}
-                                                value={values.email} />
+                                                value={values.email}
+                                            />
                                         </div>
                                         <div className="vstack">
                                             <Form.Label>Password</Form.Label>
@@ -104,7 +109,7 @@ const RegisterForm = () => {
                                             </Form.Select>
                                         </div>
                                         <div className="mt-3">
-                                            <Button className="float-end w-50 border-0 rounded-1 py-2 orangeBtn" onClick={() => { setIndex(1) }}>
+                                            <Button type="button" className="float-end w-50 border-0 rounded-1 py-2 orangeBtn" onClick={() => { setIndex(1) }}>
                                                 Next
                                             </Button>
                                         </div>
@@ -150,11 +155,11 @@ const RegisterForm = () => {
                                         </div>
                                         <div className="mt-3 hstack  gap-2">
 
-                                            <Button className="w-50 rounded-1 py-2 bg-transparent border-1 border-secondary border-opacity-25" onClick={() => { setIndex(0) }}>
+                                            <Button type='button' className="w-50 rounded-1 py-2 bg-transparent border-1 border-secondary border-opacity-25" onClick={() => { setIndex(0) }}>
                                                 Back
                                             </Button>
 
-                                            <Button type='submit' className="w-50 border-0 rounded-1 py-2 orangeBtn" disabled={isSubmitting}>
+                                            <Button type='submit' className="w-50 border-0 rounded-1 py-2 orangeBtn" onClick={() => { handleSubmit }} disabled={isSubmitting}>
                                                 Sign up
                                             </Button>
                                         </div>
@@ -166,6 +171,14 @@ const RegisterForm = () => {
             </Col>
             <Col xs={6} className="Logincol2 p-5">
                 <div className='pt-1'>
+                    {formErrors != null && (
+                        <ul className="text-danger m-0">
+                            {Object.entries(formErrors).map(([key, value]) => (
+                                <li key={key} className='errorStyle mb-1'>{value}</li>
+                            ))}
+                        </ul>
+                    )}
+
                     <h5 style={{ color: "#f65a4d" }}>SIGN UP NOW TO START YOUR FREE TRIAL</h5>
                     <p className='registerCol2p'>
                         FieldGroove empowers you to manage every aspect of your contracting business anytime,
