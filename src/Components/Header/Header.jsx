@@ -2,23 +2,24 @@ import React from "react";
 import { Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import '../../CSS/Header.css';
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <div className="p-0">
+            
             <Navbar expand="lg" className="headerColor p-0 m-0">
-             
                 <div className="vr"></div>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll" >
                     <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll >
                         <Nav.Link href="#" className="text-white p-3">FIELD <span className="brandOpacity"> GROOVE</span> </Nav.Link>
                         <div className="vr m-0 p-0"></div>
-                        <Nav.Link href="#action1" className="text-white py-3">Leads</Nav.Link>
+                        <Nav.Link as={Link} to="/Leads" className="text-white py-3">Leads</Nav.Link>
                         <div className="vr m-0 p-0"></div>
                         <Nav.Link href="#action2" className="text-white py-3">Opporunities</Nav.Link>
                         <div className="vr"></div>
-                        <Nav.Link href="#action2" className="text-white py-3">Jobs</Nav.Link>
+                        <Nav.Link href="#action2" className="text-white py-3">Jobs</Nav.Link> 
                         <div className="vr"></div>
                         <NavDropdown title="Accounting" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
