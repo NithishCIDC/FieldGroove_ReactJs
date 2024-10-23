@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Logo from "../../assets/images/logo-footer.jpg";
 import { LoginConstant } from "../../Constants/ApplicationConstants";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -23,11 +24,11 @@ const Footer = () => {
           </li>
           <li>|</li>
           <li>
-            <a>{LoginConstant.navItem6}</a>
+            <Link to="/" className="rbLink">{LoginConstant.navItem6}</Link>
           </li>
           <li>|</li>
           <li>
-            <a>{LoginConstant.navItem5}</a>
+            <Link to="/Register" className="rbLink">{LoginConstant.navItem5}</Link>
           </li>
         </ul>
       </Container>
