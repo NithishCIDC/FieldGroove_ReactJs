@@ -3,7 +3,7 @@ import "../../CSS/Sidebar.css"
 
 const Sidebar = () => {
     return (
-        <div className="m-0 p-0 sticky-top">
+        <div className="m-0 p-0 sticky-top" style={{top: "70px"}}>
             <div className="d-flex flex-column align-items-center pt-4">
                 <Icon icon="pajamas:task-done" style={{ color: "gray" }} width={"40"} height={"40"} />
                 <span className="side-bar-font my-1">Tasks</span>

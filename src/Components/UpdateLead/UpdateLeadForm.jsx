@@ -1,9 +1,7 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useState } from "react";
 import { Button, Col, Form, Row, Tab, Table, Tabs } from "react-bootstrap";
 
-
-const CreateLeadForm = () => {
+const UpdateLeadForm = () => {
 
     const [type, setType] = useState(false);
     const [status, setStatus] = useState("Contacted");
@@ -19,7 +17,7 @@ const CreateLeadForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-      };
+    };
 
     return (
 
@@ -31,14 +29,14 @@ const CreateLeadForm = () => {
             >
                 <Tab eventKey="Lead Information" title="Lead Information" className="border p-2">
                     <Form className="vstack gap-4 mt-4" onSubmit={handleSubmit}>
-                       <Row>
-                           <Col md={2}>Account Type</Col>
+                        <Row>
+                            <Col xs={2}>Account Type</Col>
                             <Col md={2}>
                                 <Form.Check type="checkbox" label="Business Account" checked={type} onChange={(e) => setType(e.target.checked)} />
                             </Col>
                             <Col md={4}></Col>
                             <Col md={2}>Date Created</Col>
-                            <Col md={2}> <p>{new Date().toLocaleDateString()}</p> </Col> 
+                            <Col md={2}> <p>{new Date().toLocaleDateString()}</p> </Col>
                         </Row>
 
                         <Row>
@@ -210,7 +208,7 @@ const CreateLeadForm = () => {
                         <Row>
                             <Col md={2}>Action Needed</Col>
                             <Col md={2}>
-                                <Form.Select value={action} onChange={(e) => setAction(e.target.value)}> 
+                                <Form.Select value={action} onChange={(e) => setAction(e.target.value)}>
                                     <option>Quote</option>
                                     <option>Not Quote</option>
                                 </Form.Select>
@@ -230,11 +228,10 @@ const CreateLeadForm = () => {
                         <hr />
                         <Row>
                             <Col className="text-end">
-                                <Button type="submit" className="me-2" variant="primary"> Save </Button>
-                                <Button variant="primary" className="me-2"> Save & Convert to Opportunity </Button>
+                                <Button type="submit" className="me-2" variant="primary"> Update </Button>
                                 <Button variant="secondary">Cancel</Button>
                             </Col>
-                        </Row> 
+                        </Row>
                     </Form>
                 </Tab>
                 <Tab eventKey="Contacts(0)" title="Contacts(0)" className="border ">
@@ -248,7 +245,8 @@ const CreateLeadForm = () => {
                 </Tab>
             </Tabs>
         </div>
+
     );
 }
 
-export default CreateLeadForm;
+export default UpdateLeadForm;
