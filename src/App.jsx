@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Register from "./Components/Account/Register/Register";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import CreateLead from "./Components/CreateLead/CreateLead";
+import UpdateLead from "./Components/UpdateLead/UpdateLead";
+import Leads from "./Components/Leads/Leads";
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/CreateLead" element={<CreateLead  />} />
+        <Route path="/UpdateLead" element={<UpdateLead  />} />
+        <Route path="/Leads" element={<Leads />} />
       </Routes>
     </BrowserRouter>
   );
