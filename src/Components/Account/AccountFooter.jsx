@@ -28,7 +28,7 @@ const Footer = () => {
           </li>
           <li>|</li>
           <li>
-            <Link to="/Register" className="rbLink">{LoginConstant.navItem5}</Link>
+            <Link to="/Account/Register" className="rbLink">{LoginConstant.navItem5}</Link>
           </li>
         </ul>
       </Container>

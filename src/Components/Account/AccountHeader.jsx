@@ -1,9 +1,10 @@
 import logo from "../../assets/images/logo-fieldgroove-blue.svg";
-import { Container } from 'react-bootstrap'
+import { Container, NavDropdown } from 'react-bootstrap'
 import { LoginConstant } from '../../Constants/ApplicationConstants'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const AccountHeader = () => {
+    const loaction = useLocation();
     return (
         <div>
             <Container className="d-flex justify-content-between px-5 mt-4 ">
@@ -18,13 +19,19 @@ const AccountHeader = () => {
                         <li>
                             <a>{LoginConstant.navItem1}</a>
                         </li>
-                        <li>{LoginConstant.navItem2}</li>
+                        <li>
+                            <NavDropdown title={LoginConstant.navItem2} id="nav-dropdown" className="HeaderDropdown">
+                                <NavDropdown.Item eventKey="0">FLOORING</NavDropdown.Item>
+                                <NavDropdown.Item eventKey="1">ROOFING</NavDropdown.Item>
+                                <NavDropdown.Item eventKey="2">DRYWALL</NavDropdown.Item>
+                                <NavDropdown.Item eventKey="3">INSULATION</NavDropdown.Item>
+                            </NavDropdown>
+                        </li>
                         <li>{LoginConstant.navItem3}</li>
                         <li>{LoginConstant.navItem4}</li>
-                        <li><Link to="/Register" className="rbLink">{LoginConstant.navItem5}</Link></li>
+                        <li>{loaction.pathname == "/Account/Register" ? <Link to="/" className="rbLink">{LoginConstant.navItem6}</Link> : <Link to="/Account/Register" className="rbLink">{LoginConstant.navItem5}</Link>}</li>
                         <li className="rounded-pill text-white p-2 px-3 blueBtn">
-                            <Link to="/" className="rbLink">{LoginConstant.navItem6}</Link>
-
+                            {loaction.pathname == "/Account/Register" ? <Link to="/Account/Register" className="rbLink">{LoginConstant.navItem5}</Link> : <Link to="/" className="rbLink">{LoginConstant.navItem6}</Link>}
                         </li>
                     </ul>
                 </div>

@@ -7,6 +7,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import CreateLead from "./Components/CreateLead/CreateLead";
 import UpdateLead from "./Components/UpdateLead/UpdateLead";
 import Leads from "./Components/Leads/Leads";
+import WaitingActivation from "./Components/Account/Register/WaitingActivation";
 
 
 function App() {
@@ -15,11 +16,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/Account/Register" element={<Register />} />
         <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/CreateLead" element={<CreateLead  />} />
-        <Route path="/UpdateLead" element={<UpdateLead  />} />
+        <Route path="/CreateLead" element={<CreateLead />} />
+        <Route path="/UpdateLead" element={<UpdateLead />} />
         <Route path="/Leads" element={<Leads />} />
+        <Route path="/Account/WaitingActivation" element={<WaitingActivation />} />
       </Routes>
     </BrowserRouter>
   );

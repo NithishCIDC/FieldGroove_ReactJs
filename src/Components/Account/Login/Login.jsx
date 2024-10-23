@@ -47,7 +47,7 @@ const Login = () => {
                   <br /> your company. Click the &quot;Create New Account&quot;
                   <br /> button below to get started
                 </p>
-                <Link to={"/Register"}
+                <Link to={"/Account/Register"}
                   className="btn text-white rounded-1 border-0 py-2"
                   style={{ backgroundColor: "#192447" }}
                 >

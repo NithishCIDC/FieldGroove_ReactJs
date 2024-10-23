@@ -112,3 +112,13 @@ input {
   font-weight: 400;
   color: #1a3265;
 }
+.HeaderDropdown > .dropdown-menu {
+  background-color: #182346;
+}
+.HeaderDropdown > .dropdown-menu > .dropdown-item {
+  color: white;
+  padding: 5px 50px 5px 15px;
+}
+.HeaderDropdown > .dropdown-menu > .dropdown-item:hover {
+  background-color: #f65a4d;
+}
