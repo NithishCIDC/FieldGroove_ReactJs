@@ -1,56 +1,114 @@
 input {
   outline: none;
 }
+.blueText {
+  color: #3652af;
+}
+.rbLink {
+  text-decoration: none !important;
+  color: inherit !important;
+}
 .navStyle {
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    font-style: normal;
-  }
-  .navStyle > li {
-    cursor: pointer;
-  }
-  .navStyle > li:hover {
-    color: #f65a4d;
-  }
-  .blueBtn {
-    background-color: #3553ad !important;
-  }
-  .blueBtn:hover {
-    background-color: #f65a4d;
-  }
-  .Login {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-  }
-  .LoginBody {
-    background-image: url("./assets/images/bg.png");
-    background-position: 0 200px;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .Logincol1 {
-    position: relative;
-    background-color: #182446;
-  }
-  .Logincol1::after {
-    content: "";
-    position: absolute;
-    top: 50px;
-    right: -30px;
-    height: 0px;
-    width: 0px;
-    border: solid 15px transparent;
-    border-left-color: #172648;
-    overflow: hidden;
-  }
-  .Logincol2 {
-    background-color: #f2f5f8;
-  }
-  .text-justify {
-    text-align: justify;
-  }
-.sidebgColor{
-    background-color: #E8E8E8;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+}
+.navStyle > li {
+  cursor: pointer;
+}
+.navStyle > li:hover {
+  color: #f65a4d;
+}
+.blueBtn {
+  background-color: #3553ad !important;
+}
+.blueBtn:hover {
+  background-color: #f65a4d !important;
+}
+.orangeBtn {
+  background-color: #e56355 !important;
+}
+.Login {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+.LoginBody {
+  background-image: url("./assets/images/bg.png");
+  background-position: 0 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Logincol1 {
+  position: relative;
+  background-color: #182446;
+}
+.Logincol1::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  right: -30px;
+  height: 0px;
+  width: 0px;
+  border: solid 15px transparent;
+  border-left-color: #172648;
+  overflow: hidden;
+}
+.Logincol2 {
+  background-color: #f2f5f8;
+}
+.text-justify {
+  text-align: justify;
+}
+.sidebgColor {
+  background-color: #e8e8e8;
+}
+.formRegister .form-control {
+  border-radius: 0;
+}
+.formRegister .form-select {
+  border-radius: 0;
+}
+.registerCol2p {
+  padding: 20px 0px;
+  font-size: 16px;
+  color: #1b3365;
+  line-height: 1.4em;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.registerCol2List {
+  padding: 0px;
+  padding-top: 0px;
+}
+.registerCol2List > li {
+  position: relative;
+  padding-left: 30px;
+  margin: 15px 0px 0px 0px;
+  color: #1b3365;
+  font-size: 15px;
+  line-height: 1.4em;
+  list-style-type: none;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.registerCol2List > li::before {
+  content: url("./assets/images/icon-item.png");
+  position: absolute;
+  left: -2px;
+  top: 2px;
+}
+.QuestionStyle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2e59b0;
+  line-height: 1.3em;
+}
+.QuestionStyle > div > p1 {
+  margin: 10px 0px 0px 0px;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+  color: #1a3265;
 }
