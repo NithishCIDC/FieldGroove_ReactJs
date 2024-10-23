@@ -1,8 +1,12 @@
 import React from "react";
 import { Button, Col, Form, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import DataTable from 'datatables.net-react';
+import DT from 'datatables.net-dt';
 
 const LeadsDetails = () => {
+    // $('#LeadsTable').DataTable ();
+    DataTable.use(DT);
     return (
         <div>
             <div className="d-flex justify-content-between bg-secondary bg-opacity-10 px-4 py-4">
@@ -84,44 +88,46 @@ const LeadsDetails = () => {
                 </Row>
                 <Row className="mt-4 ">
                     <Col>
-                        <Table bordered responsive>
-                            <thead className="bg-secondary bg-opacity-10">
-                                <tr>
-                                    <th>Project Name</th>
-                                    <th>Status</th>
-                                    <th>Added</th>
-                                    <th>Type</th>
-                                    <th>Contact</th>
-                                    <th>Action</th>
-                                    <th>Assignee</th>
-                                    <th>Bid Date</th>
-                                    <th className="text-center">Operations</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td className="d-flex justify-content-evenly">
-                                        <Button variant="link">
-                                            <i className="bi bi-pencil-fill" style={{ color: 'dodgerblue' }}></i>
-                                        </Button>
-                                        <Button variant="link">
-                                            <i className="bi bi-trash-fill" style={{ color: '#d60000' }}></i>
-                                        </Button>
-                                        <Button variant="link">
-                                            <i className="bi bi-download" style={{ color: 'lightslategrey' }}></i>
-                                        </Button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </Table>
+                        <DataTable>
+                            <Table bordered responsive hover id="LeadsTable">
+                                <thead className="bg-secondary bg-opacity-10">
+                                    <tr>
+                                        <th>Project Name</th>
+                                        <th>Status</th>
+                                        <th>Added</th>
+                                        <th>Type</th>
+                                        <th>Contact</th>
+                                        <th>Action</th>
+                                        <th>Assignee</th>
+                                        <th>Bid Date</th>
+                                        <th className="text-center">Operations</th>
+                                    </tr>
+                                </thead>
+                                {/* <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td className="d-flex justify-content-evenly">
+                                            <Button variant="link">
+                                                <i className="bi bi-pencil-fill" style={{ color: 'dodgerblue' }}></i>
+                                            </Button>
+                                            <Button variant="link">
+                                                <i className="bi bi-trash-fill" style={{ color: '#d60000' }}></i>
+                                            </Button>
+                                            <Button variant="link">
+                                                <i className="bi bi-download" style={{ color: 'lightslategrey' }}></i>
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                </tbody> */}
+                            </Table>
+                        </DataTable>
                     </Col>
                 </Row>
             </div>
