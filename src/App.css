@@ -1,3 +1,6 @@
+input {
+  outline: none;
+}
 .navStyle {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
