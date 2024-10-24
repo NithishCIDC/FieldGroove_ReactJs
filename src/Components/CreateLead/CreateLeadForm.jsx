@@ -56,7 +56,7 @@ const CreateLeadForm = () => {
 
         <div className=" p-3 border">
             <Tabs
-                defaultActiveKey="profile"
+                defaultActiveKey="Lead Information"
                 id="uncontrolled-tab-example"
                 className=""
             >

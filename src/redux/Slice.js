@@ -11,8 +11,8 @@ export const Slice = createApi({
             }
             return headers;
           },
-        tagTypes: ["FieldGroove"],
     }),
+    tagTypes: ["FieldGroove"],
     endpoints: (builder) => ({
         postLogin: builder.mutation({
             query: (values) =>({
@@ -30,28 +30,34 @@ export const Slice = createApi({
         }),
         getLeads: builder.query({
             query: () => 'Home/Leads',
+
         }),
         getidLeads: builder.query ({
             query: (id) => `Home/Leads/${id}`,
+          
         }),
         postLeads: builder.mutation ({
             query: ( values) =>  ({
                 url: 'Home/CreateLead',
                 method: 'POST',
                 body: values,
+                
             }),
+            invalidatesTags: ["FieldGroove"],
         }),
         putLeads: builder.mutation ({
             query: (values) => ({
                 url: `Home/EditLead`,
                 method: 'PUT',
                 body: values,
-            }),
+                
+            }),invalidatesTags: ["FieldGroove"],
         }),
         deleteLeads: builder.mutation ({
             query: (id) => ({
                 url: `Home/DeleteLead/${id}`,
-                method: 'DELETE', 
+                method: 'DELETE',
+                providesTags:["FieldGroove"],
             })
         })
     }),

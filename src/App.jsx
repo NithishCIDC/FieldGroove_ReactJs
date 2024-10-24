@@ -20,7 +20,7 @@ function App() {
         <Route path="/Account/WaitingActivation" element={<WaitingActivation />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/CreateLead" element={<CreateLead />} />
-        <Route path="/UpdateLead" element={<UpdateLead />} />
+        <Route path="/UpdateLead/:id" element={<UpdateLead />} />
         <Route path="/Leads" element={<Leads />} />
       </Routes>
     </BrowserRouter>

@@ -1,7 +1,9 @@
 import { Button, Col, Form, Row, Tab, Table, Tabs } from "react-bootstrap";
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useGetidLeadsQuery, usePutLeadsMutation } from "../../redux/Slice";
 
 const validationSchema = Yup.object().shape({
     projectName: Yup.string().required('Project Name is required'),
@@ -15,16 +17,14 @@ const UpdateLeadForm = () => {
     const Nav = useNavigate();
     const {id} =useParams();
     const [submit , setSubmit ]= useState(false);
-    const {data} = useGetidLeadsQuery(id); 
-    const [putItem] = usePutLeadsMutation();
-
-
+    const {data ,isSuccess} = useGetidLeadsQuery(parseInt(id));
+    const [UpdateLead] = usePutLeadsMutation();
+    
     const handleSubmit = async (values) => {
        console.log("FG:",values);
        setSubmit(true);
-       try {
-          
-           await putItem(values);
+       try { 
+           await UpdateLead(values);
            Nav('/Leads');
        }
        catch (e) {
@@ -39,24 +39,27 @@ const UpdateLeadForm = () => {
     };
 
     const InitialValue = {
-        Type: data?.type || false,
+        id:data?.id,
+        Type:data?.type || false,
         projectName: data?.projectName || '',
-        status: data?.status || 'Contacted',
+        status:  data?.status || 'Contacted',
         contact: data?.contact || '',
-        action: data?.action || 'Quote',
-        assignee: data?.assignee || 'Hariprakash',
+        action:  data?.action || 'Quote',
+        assignee:  data?.assignee || 'Hariprakash',
         bidDate: data?.bidDate || new Date().toISOString().split("T")[0],
+        added:  new Date().toISOString().split("T")[0],
     };
 
     return (
 
         <div className=" p-3 border">
             <Tabs
-                defaultActiveKey="profile"
+                defaultActiveKey="Lead Information"
                 id="uncontrolled-tab-example"
                 className=""
             >
                 <Tab eventKey="Lead Information" title="Lead Information" className="border p-2">
+                {isSuccess && 
                 <Formik
                         initialValues={InitialValue}
                         validationSchema={validationSchema}
@@ -342,7 +345,7 @@ const UpdateLeadForm = () => {
                                 </Row>
                             </Form>
                         )}
-                    </Formik>
+                    </Formik>}
                 </Tab>
                 <Tab eventKey="Contacts(0)" title="Contacts(0)" className="border ">
                     ... Contact Details
