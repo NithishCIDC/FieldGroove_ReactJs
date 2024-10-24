@@ -7,6 +7,28 @@ import { columns, LeadformFields } from "../../Constants/ApplicationConstants";
 const LeadsDetails = () => {
     const { data, isSuccess } = useGetLeadsQuery();
     isSuccess && console.log(data.data);
+    const customStyles = {
+        rows: {
+            style: {
+                '&:nth-of-type(odd)': {
+                    backgroundColor: '#f3f3f3',
+                },
+                '&:hover': {
+                    backgroundColor: '#e0e0e0',
+                },
+            },
+        },
+        headCells: {
+            style: {
+                fontSize: '16px', // header font size
+            },
+        },
+        cells: {
+            style: {
+                fontSize: '16px', // cell font size
+            },
+        },
+    };
     return (
         <div>
             <div className="d-flex justify-content-between bg-secondary bg-opacity-10 px-4 py-4">
@@ -78,15 +100,17 @@ const LeadsDetails = () => {
                     </Col>
                 </Row>
             </div>
-
-            <DataTable
-                columns={columns}
-                data={data?.data}
-                pagination
-                fixedHeader
-                fixedHeaderScrollHeight="300px"
-                highlightOnHover
-            />
+            {isSuccess &&
+                <DataTable
+                    columns={columns}
+                    data={data.data}
+                    pagination
+                    fixedHeader
+                    fixedHeaderScrollHeight="300px"
+                    highlightOnHover
+                    customStyles={customStyles}
+                />
+            }
         </div>
     );
 };
