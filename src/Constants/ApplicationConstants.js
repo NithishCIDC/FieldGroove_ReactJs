@@ -49,3 +49,53 @@ export   const formFields = [
     { name: "email", type: "text", label: "Email" },
     { name: "password", type: "password", label: "Password" },
   ];
+
+  export const LeadformFields = [
+        { type: 'text', placeholder: 'Search Leads...' },
+        { type: 'select', options: ['Select an Action', 'One', 'Two', 'Three'] },
+        { type: 'select', options: ['Select a Type', 'One', 'Two', 'Three'] },
+        { type: 'select', options: ['Select a Status', 'One', 'Two', 'Three'] },
+        { type: 'select', options: ['Select a Sales Person', 'One', 'Two', 'Three'] },
+    ];
+  export const columns = [
+        {
+            name: 'Project Name',
+            selector: row => row.projectName,
+            sortable: true,
+        },
+        {
+            name: 'Status',
+            selector: row => row.status,
+            sortable: true,
+        },
+        {
+            name: 'Added',
+            selector: row => row.added,
+            sortable: true,
+        },
+        {
+            name: 'Type',
+            selector: row => row.type,
+            sortable: true,
+        },
+        {
+            name: 'Contact',
+            selector: row => row.contact,
+            sortable: true,
+        },
+        {
+            name: 'Action',
+            selector: row => row.action,
+            sortable: true,
+        },
+        {
+            name: 'Assignee',
+            selector: row => row.assignee,
+            sortable: true,
+        },
+        {
+            name: 'Bid Date',
+            selector: row => row.bidDate,
+            sortable: true,
+        },
+    ];

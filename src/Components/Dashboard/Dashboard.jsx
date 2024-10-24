@@ -17,11 +17,11 @@ const Dashboard = () => {
                 <Col className="p-0 m-0">
                     <div className="d-flex justify-content-between bg-secondary bg-opacity-10 px-4 py-4">
                         <div><h2>Dashboard</h2></div>
-                        <div class="hstack gap-3">
-                            <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{backgroundColor:"limegreen"}}>Start New Opportunity</Button>
-                            <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{backgroundColor:"limegreen"}}>Add New Lead</Button>
+                        <div className="hstack gap-3">
+                            <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{ backgroundColor: "limegreen" }}>Start New Opportunity</Button>
+                            <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{ backgroundColor: "limegreen" }}>Add New Lead</Button>
                         </div>
-                    </div> 
+                    </div>
                 </Col>
             </Row>
         </div>
