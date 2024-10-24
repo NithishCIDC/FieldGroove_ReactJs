@@ -81,7 +81,7 @@ const LeadsDetails = () => {
 
             <DataTable
                 columns={columns}
-                data={data.data}
+                data={data?.data}
                 pagination
                 fixedHeader
                 fixedHeaderScrollHeight="300px"
