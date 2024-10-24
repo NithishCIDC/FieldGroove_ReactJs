@@ -5,9 +5,11 @@ import { Button, Carousel, Col, Form, Row } from 'react-bootstrap'
 import { RegisterValidation } from "../ValidationSchema"
 import { initialValue, accountFields, addressFields } from '../../../Constants/ApplicationConstants';
 import { useNavigate } from 'react-router-dom';
+import { usePostRegisterMutation } from "../../../redux/Slice";
 
 
 const RegisterForm = () => {
+    const [register] = usePostRegisterMutation()
     const navigate = useNavigate();
     const [formErrors, setformErrors] = useState();
     const [Index, setIndex] = useState(0);
@@ -35,10 +37,9 @@ const RegisterForm = () => {
                         setSubmitting(true);
                         const isValid = await handleValidation(values);
                         if (isValid) {
-                            console.log(values);
+                            await register(values);
                             navigate('/Account/WaitingActivation');
                         }
-
                     }}
                 >
                     {({ values, handleChange, handleSubmit, isSubmitting }) => (

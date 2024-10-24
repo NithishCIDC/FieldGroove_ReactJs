@@ -7,10 +7,13 @@ import { Formik, Form as FormikForm } from "formik";
 import { LoginValidation } from "../ValidationSchema";
 import { useState } from "react";
 import { formFields } from "../../../Constants/ApplicationConstants";
+import { usePostLoginMutation } from "../../../redux/Slice";
 
 const Login = () => {
   const navigate = useNavigate();
   const [formErrors, setformErrors] = useState();
+  const [auth] = usePostLoginMutation();
+
   const handleValidation = async (values) => {
     try {
       await LoginValidation.validate(values, { abortEarly: false });
@@ -44,7 +47,12 @@ const Login = () => {
                   const isValid = await handleValidation(values);
                   if (isValid) {
                     console.log(values)
-                    navigate("/Dashboard")
+                    const res = await auth(values);
+                    if (res.data.token) {
+                      sessionStorage.setItem("token", res.data.token);
+                      sessionStorage.setItem("user", JSON.stringify(res.data.user));
+                      navigate("/Dashboard")
+                    }
                   }
                 }}
               >

@@ -10,8 +10,8 @@ export const RegisterValidation = Yup.object().shape({
     passwordagain: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Password confirmation is required'),
-    streetad1: Yup.string().required('Street Address 1 is required'),
-    streetad2: Yup.string().required('Street Address 2 is required'),
+    streetaddress1: Yup.string().required('Street Address 1 is required'),
+    streetaddress2: Yup.string().required('Street Address 2 is required'),
     city: Yup.string().required('City is required'),
     state: Yup.string().required('State is required'),
     zip: Yup.string().required('Zip is required'),
