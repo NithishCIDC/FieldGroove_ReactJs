@@ -19,9 +19,9 @@ export const initialValue = {
         email: "",
         password: "",
         passwordagain: "",
-        timezone: "",
-        streetad1: "",
-        streetad2: "",
+        timezone: "Central Standard Time",
+        streetaddress1: "",
+        streetaddress2: "",
         city: "",
         state: "",
         zip: "",
@@ -38,8 +38,8 @@ export const accountFields = [
 ];
 
 export const addressFields = [
-        { label: "Street Address 1", name: "streetad1", type: "text" },
-        { label: "Street Address 2", name: "streetad2", type: "text" },
+        { label: "Street Address 1", name: "streetaddress1", type: "text" },
+        { label: "Street Address 2", name: "streetaddress2", type: "text" },
         { label: "City", name: "city", type: "text" },
         { label: "State", name: "state", type: "text" },
         { label: "Zip", name: "zip", type: "text" }

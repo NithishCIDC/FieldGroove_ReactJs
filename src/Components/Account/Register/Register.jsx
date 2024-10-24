@@ -3,9 +3,7 @@ import AccountHeader from "../AccountHeader";
 import AccountFooter from "../AccountFooter";
 import RegisterForm from "./RegisterForm";
 
-
 const Register = () => {
-
   return (
     <div>
       <AccountHeader />

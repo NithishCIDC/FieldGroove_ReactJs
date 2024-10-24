@@ -4,13 +4,13 @@ export const Slice = createApi({
     reducerPath:'api',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://localhost:7222/api/',
-        // prepareHeaders: (headers) => {
-        //     const token = sessionStorage.getItem("token");
-        //     if (token) {
-        //       headers.set("Authorization", `Bearer ${token}`);
-        //     }
-        //     return headers;
-        //   },
+        prepareHeaders: (headers) => {
+            const token = sessionStorage.getItem("token");
+            if (token) {
+              headers.set("Authorization", `Bearer ${token}`);
+            }
+            return headers;
+          },
         tagTypes: ["FieldGroove"],
     }),
     endpoints: (builder) => ({
