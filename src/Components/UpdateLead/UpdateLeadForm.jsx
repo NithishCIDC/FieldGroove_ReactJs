@@ -1,6 +1,7 @@
 import { Button, Col, Form, Row, Tab, Table, Tabs } from "react-bootstrap";
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
     projectName: Yup.string().required('Project Name is required'),
@@ -11,21 +12,40 @@ const validationSchema = Yup.object().shape({
     bidDate: Yup.date().required('Bid Date is required').nullable(),
 });
 const UpdateLeadForm = () => {
+    const Nav = useNavigate();
+    const {id} =useParams();
+    const [submit , setSubmit ]= useState(false);
+    const {data} = useGetidLeadsQuery(id); 
+    const [putItem] = usePutLeadsMutation();
 
 
-    const handleSubmit = (values) => {
+    const handleSubmit = async (values) => {
        console.log("FG:",values);
+       setSubmit(true);
+       try {
+          
+           await putItem(values);
+           Nav('/Leads');
+       }
+       catch (e) {
+           setSubmit(true);
+           console.error('Error ', e);
+           isLoading(false);
+       }
+       finally{
+           setSubmit(false);
+       };
        
     };
 
     const InitialValue = {
-        Type:false,
-        projectName: '',
-        status: 'Contacted',
-        contact: '',
-        action: 'Quote',
-        assignee: 'Hariprakash',
-        bidDate: '',
+        Type: data?.type || false,
+        projectName: data?.projectName || '',
+        status: data?.status || 'Contacted',
+        contact: data?.contact || '',
+        action: data?.action || 'Quote',
+        assignee: data?.assignee || 'Hariprakash',
+        bidDate: data?.bidDate || new Date().toISOString().split("T")[0],
     };
 
     return (

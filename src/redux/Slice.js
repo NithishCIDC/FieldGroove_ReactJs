@@ -42,7 +42,7 @@ export const Slice = createApi({
             }),
         }),
         putLeads: builder.mutation ({
-            query: (...values) => ({
+            query: (values) => ({
                 url: `Home/EditLead`,
                 method: 'PUT',
                 body: values,
@@ -57,5 +57,5 @@ export const Slice = createApi({
     }),
 });
 
-export const { usePostLoginMutation, usePostRegisterMutation, useGetLeadsQuery, useDeleteLeadsMutation, usePutLeadsMutation, usePostLeadsMutation } = Slice;
+export const { usePostLoginMutation, usePostRegisterMutation, useGetLeadsQuery, useGetidLeadsQuery, useDeleteLeadsMutation, usePutLeadsMutation, usePostLeadsMutation } = Slice;
 

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useGetLeadsQuery } from "../../redux/Slice";
 import DataTable from "react-data-table-component";
 import { columns, LeadformFields } from "../../Constants/ApplicationConstants";
-
 const LeadsDetails = () => {
     const { data, isSuccess } = useGetLeadsQuery();
     isSuccess && console.log(data.data);
@@ -100,7 +99,8 @@ const LeadsDetails = () => {
                     </Col>
                 </Row>
             </div>
-            {isSuccess &&
+            <div className="p-4">
+                {isSuccess &&
                 <DataTable
                     columns={columns}
                     data={data.data}
@@ -111,6 +111,8 @@ const LeadsDetails = () => {
                     customStyles={customStyles}
                 />
             }
+            </div>
+            
         </div>
     );
 };

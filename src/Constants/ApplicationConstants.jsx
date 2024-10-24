@@ -1,3 +1,6 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const LoginConstant=
 {
@@ -57,7 +60,7 @@ export   const formFields = [
         { type: 'select', options: ['Select a Status', 'One', 'Two', 'Three'] },
         { type: 'select', options: ['Select a Sales Person', 'One', 'Two', 'Three'] },
     ];
-  export const columns = [
+    export const columns = [
         {
             name: 'Project Name',
             selector: row => row.projectName,
@@ -76,6 +79,7 @@ export   const formFields = [
         {
             name: 'Type',
             selector: row => row.type,
+            cell: row => (row.type ? "Business" : "Personal"),
             sortable: true,
         },
         {
@@ -98,4 +102,16 @@ export   const formFields = [
             selector: row => row.bidDate,
             sortable: true,
         },
+        {
+            name: 'Operation',
+            cell: row => (
+                <div className="d-flex justify-content-between">
+                    <Button variant="none" className="p-1" ><Link to={"/UpdateLead"} ><Icon icon="akar-icons:edit" width={"25px"} style={{color: "dodgerblue"}} /></Link></Button>
+                    <Button  variant="none" className="p-1" ><Icon icon="weui:delete-on-outlined" width={"25px"} style={{color: " #d60000"}} /></Button>
+                    <Button  variant="none" className="p-1" ><Icon icon="flowbite:download-outline"  width={"25px"} style={{color: "lightslategrey"}} /></Button>
+                </div>
+            ),
+            sortable: false,
+        },
     ];
+    
