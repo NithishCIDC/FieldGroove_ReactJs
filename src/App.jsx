@@ -17,11 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/Account/Register" element={<Register />} />
+        <Route path="/Account/WaitingActivation" element={<WaitingActivation />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/CreateLead" element={<CreateLead />} />
         <Route path="/UpdateLead" element={<UpdateLead />} />
         <Route path="/Leads" element={<Leads />} />
-        <Route path="/Account/WaitingActivation" element={<WaitingActivation />} />
       </Routes>
     </BrowserRouter>
   );
