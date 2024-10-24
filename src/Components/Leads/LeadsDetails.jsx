@@ -3,18 +3,24 @@ import { Button, Col, Form, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
+import { useGetLeadsQuery } from "../../redux/Slice";
 
 const LeadsDetails = () => {
     // $('#LeadsTable').DataTable ();
-    DataTable.use(DT);
+
+    // DataTable.use(DT);
+    const {data} = useGetLeadsQuery();
+
+    console.log(data);
+
     return (
         <div>
             <div className="d-flex justify-content-between bg-secondary bg-opacity-10 px-4 py-4">
                 <h2>Leads</h2>
                 <div className="hstack gap-3">
-                    <Button variant="warning" className="px-3 py-2">View Converted</Button>
-                    <Button variant="warning" className="px-3 py-2">View Archived</Button>
-                    <Button variant="success" className="px-3 py-2"><Link to="/CreateLead" className="text-decoration-none text-dark "> Add Lead </Link></Button>
+                    <Button variant="warning" className="px-3 py-2 text-white">View Converted</Button>
+                    <Button variant="warning" className="px-3 py-2 text-white">View Archived</Button>
+                    <Button variant="success" className="px-3 py-2"><Link to="/CreateLead" className="text-decoration-none  text-white"> Add Lead </Link></Button>
                 </div>
             </div>
 
@@ -88,7 +94,7 @@ const LeadsDetails = () => {
                 </Row>
                 <Row className="mt-4 ">
                     <Col>
-                        <DataTable>
+                        {/* <DataTable> */}
                             <Table bordered responsive hover id="LeadsTable">
                                 <thead className="bg-secondary bg-opacity-10">
                                     <tr>
@@ -127,7 +133,7 @@ const LeadsDetails = () => {
                                     </tr>
                                 </tbody> */}
                             </Table>
-                        </DataTable>
+                        {/* </DataTable> */}
                     </Col>
                 </Row>
             </div>
