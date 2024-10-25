@@ -32,35 +32,34 @@ const LeadsDetails = () => {
     };
 
     
-// const [deleteItem] =useDeleteLeadsMutation();
+const [deleteItem] =useDeleteLeadsMutation();
 const [show, SetShow] = useState(false);
-// const [submit, setSubmit] = useState(false);
-// const [deleteId, SetdeleteId] = useState(); 
-// const nav = useNavigate();  
+const [submit, setSubmit] = useState(false);
+const [deleteId, SetdeleteId] = useState(); 
+const nav = useNavigate();  
 
 const handleShow = (id) => {
-    // SetdeleteId(id);
+    SetdeleteId(id);
     SetShow(true);
-    console.log(id);
 };
 
-const handleClose = () => SetShow(false);s
+const handleClose = () => SetShow(false);
 
 const handleDelete = async () => {
-//     setSubmit(true);
-//     try {
-//         await deleteItem(5);
-//         // refetch();
-//         SetShow(false);
-//         nav('/Leads');
-//     } catch (e) {
-//         console.error(`Error:`, e);
-//         alert("Try Again");
-//         SetShow(false);
-//     }
-//     finally{
-//         setSubmit(false);
-//     }
+    setSubmit(true);
+    try {
+        await deleteItem(5);
+        // refetch();
+        SetShow(false);
+        nav('/Leads');
+    } catch (e) {
+        console.error(`Error:`, e);
+        alert("Try Again");
+        SetShow(false);
+    }
+    finally{
+        setSubmit(false);
+    }
 };
 
 const columns = [
@@ -110,7 +109,7 @@ const columns = [
         cell: row => (
             <div className="d-flex justify-content-between">
                 <Button variant="none" className="p-1" ><Link to={`/UpdateLead/${row.id}`} ><Icon icon="akar-icons:edit" width={"25px"} style={{ color: "dodgerblue" }} /></Link></Button>
-                <Button variant="none" className="p-1" onClick={() => handleShow(row.id)} ><Icon icon="weui:delete-on-outlined" width={"25px"} style={{ color: " #d60000" }} /></Button>
+                <Button variant="none" className="p-1"  onClick={() => handleShow(row.id)} ><Icon icon="weui:delete-on-outlined" width={"25px"} style={{ color: " #d60000" }} /></Button>
                 <Button variant="none" className="p-1" ><Icon icon="flowbite:download-outline" width={"25px"} style={{ color: "lightslategrey" }} /></Button>
             </div>
         ),
