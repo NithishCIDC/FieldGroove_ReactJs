@@ -5,9 +5,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+    const Username = JSON.parse(sessionStorage.getItem("user"));
     return (
         <div className="p-0">
-            
+
             <Navbar expand="lg" className="headerColor p-0 m-0">
                 <div className="vr"></div>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -19,7 +20,7 @@ const Header = () => {
                         <div className="vr m-0 p-0"></div>
                         <Nav.Link href="#action2" className="text-white py-3">Opporunities</Nav.Link>
                         <div className="vr"></div>
-                        <Nav.Link href="#action2" className="text-white py-3">Jobs</Nav.Link> 
+                        <Nav.Link href="#action2" className="text-white py-3">Jobs</Nav.Link>
                         <div className="vr"></div>
                         <NavDropdown title="Accounting" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -58,7 +59,7 @@ const Header = () => {
                     </div>
 
                     <Icon icon="iconamoon:profile-circle-fill" width={"40px"} />
-                    <p className="mx-3 my-0 text-white">Username</p>
+                    <p className="mx-3 my-0 text-white">{Username}</p>
                 </Navbar.Collapse>
             </Navbar>
         </div>
