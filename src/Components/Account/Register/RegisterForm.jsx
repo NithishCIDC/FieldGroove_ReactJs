@@ -65,7 +65,16 @@ const RegisterForm = () => {
                                                     <Form.Control
                                                         type={field.type}
                                                         name={field.name}
-                                                        onChange={handleChange}
+                                                        onChange={(e) => {
+                                                            if (field.type == "tel") {
+                                                                const value = e.target.value.replace(/[^0-9]/g, '');
+                                                                if (value.length <= 10) {
+                                                                    handleChange({ target: { name: field.name, value } });
+                                                                }
+                                                            } else {
+                                                                handleChange(e);
+                                                            }
+                                                        }}
                                                         value={values[field.name]}
                                                     />
                                                 )}
