@@ -63,6 +63,7 @@ const Login = () => {
                       <div key={index} className="vstack gap-2">
                         <label>{field.label}</label>
                         <input
+                          className="py-1"
                           type={field.type}
                           name={field.name}
                           onChange={handleChange}

@@ -1,6 +1,4 @@
-import React from "react";
-
-import {Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Header from "../Header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import LeadsDetails from "./LeadsDetails";
