@@ -36,7 +36,6 @@ export const Slice = createApi({
         getidLeads: builder.query ({
             query: (id) => `Home/Leads/${id}`,
             providesTags:["FieldGroove"],
-          
         }),
         postLeads: builder.mutation ({
             query: ( values) =>  ({
@@ -53,14 +52,15 @@ export const Slice = createApi({
                 method: 'PUT',
                 body: values,
                 
-            }),invalidatesTags: ["FieldGroove"],
+            }),
+            invalidatesTags: ["FieldGroove"],
         }),
         deleteLeads: builder.mutation ({
             query: (id) => ({
                 url: `Home/DeleteLead/${id}`,
                 method: 'DELETE',
-                // providesTags:["FieldGroove"],
-            }),invalidatesTags: ["FieldGroove"],
+            }),
+            invalidatesTags: ["FieldGroove"],
         })
     }),
 });

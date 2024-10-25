@@ -1,13 +1,3 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { Button, Modal } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { useDeleteLeadsMutation } from "../redux/Slice";
-import { useState } from "react";
-// import { useGetLeadsQuery } from "../redux/Slice";
-
-// const {data} = useGetLeadsQuery();
-
-
 export const LoginConstant =
 {
     navItem1: "Features",
@@ -67,6 +57,28 @@ export const LeadformFields = [
     { type: 'select', options: ['Select a Sales Person', 'One', 'Two', 'Three'] },
 ];
 
+export const customStyles = {
+    rows: {
+        style: {
+            '&:nth-of-type(odd)': {
+                backgroundColor: '#f3f3f3',
+            },
+            '&:hover': {
+                backgroundColor: '#e0e0e0',
+            },
+        },
+    },
+    headCells: {
+        style: {
+            fontSize: '16px', // header font size
+        },
+    },
+    cells: {
+        style: {
+            fontSize: '16px', // cell font size
+        },
+    },
+};
 
 
 

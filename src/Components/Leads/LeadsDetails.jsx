@@ -1,122 +1,77 @@
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDeleteLeadsMutation, useGetLeadsQuery } from "../../redux/Slice";
 import DataTable from "react-data-table-component";
-import {LeadformFields } from "../../Constants/ApplicationConstants";
+import { LeadformFields, customStyles } from "../../Constants/ApplicationConstants";
 import { useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
+
 const LeadsDetails = () => {
     const { data, isSuccess } = useGetLeadsQuery();
-    isSuccess && console.log(data.data);
-    const customStyles = {
-        rows: {
-            style: {
-                '&:nth-of-type(odd)': {
-                    backgroundColor: '#f3f3f3',
-                },
-                '&:hover': {
-                    backgroundColor: '#e0e0e0',
-                },
-            },
+    const [deleteLead] = useDeleteLeadsMutation();
+
+    const [show, SetShow] = useState(false);
+
+    const handleDelete = (id) => {
+        deleteLead(id);
+        SetShow(false);
+    }
+
+
+    const columns = [
+        {
+            name: 'Project Name',
+            selector: row => row.projectName,
+            sortable: true,
         },
-        headCells: {
-            style: {
-                fontSize: '16px', // header font size
-            },
+        {
+            name: 'Status',
+            selector: row => row.status,
+            sortable: true,
         },
-        cells: {
-            style: {
-                fontSize: '16px', // cell font size
-            },
+        {
+            name: 'Added',
+            selector: row => row.added,
+            sortable: true,
         },
-    };
-
-    
-// const [deleteItem] =useDeleteLeadsMutation();
-const [show, SetShow] = useState(false);
-// const [submit, setSubmit] = useState(false);
-// const [deleteId, SetdeleteId] = useState(); 
-// const nav = useNavigate();  
-
-const handleShow = (id) => {
-    // SetdeleteId(id);
-    SetShow(true);
-    console.log(id);
-};
-
-const handleClose = () => SetShow(false);s
-
-const handleDelete = async () => {
-//     setSubmit(true);
-//     try {
-//         await deleteItem(5);
-//         // refetch();
-//         SetShow(false);
-//         nav('/Leads');
-//     } catch (e) {
-//         console.error(`Error:`, e);
-//         alert("Try Again");
-//         SetShow(false);
-//     }
-//     finally{
-//         setSubmit(false);
-//     }
-};
-
-const columns = [
-    {
-        name: 'Project Name',
-        selector: row => row.projectName,
-        sortable: true,
-    },
-    {
-        name: 'Status',
-        selector: row => row.status,
-        sortable: true,
-    },
-    {
-        name: 'Added',
-        selector: row => row.added,
-        sortable: true,
-    },
-    {
-        name: 'Type',
-        selector: row => row.type,
-        cell: row => (row.type ? "Business" : "Personal"),
-        sortable: true,
-    },
-    {
-        name: 'Contact',
-        selector: row => row.contact,
-        sortable: true,
-    },
-    {
-        name: 'Action',
-        selector: row => row.action,
-        sortable: true,
-    },
-    {
-        name: 'Assignee',
-        selector: row => row.assignee,
-        sortable: true,
-    },
-    {
-        name: 'Bid Date',
-        selector: row => row.bidDate,
-        sortable: true,
-    },
-    {
-        name: 'Operation',
-        cell: row => (
-            <div className="d-flex justify-content-between">
-                <Button variant="none" className="p-1" ><Link to={`/UpdateLead/${row.id}`} ><Icon icon="akar-icons:edit" width={"25px"} style={{ color: "dodgerblue" }} /></Link></Button>
-                <Button variant="none" className="p-1" onClick={() => handleShow(row.id)} ><Icon icon="weui:delete-on-outlined" width={"25px"} style={{ color: " #d60000" }} /></Button>
-                <Button variant="none" className="p-1" ><Icon icon="flowbite:download-outline" width={"25px"} style={{ color: "lightslategrey" }} /></Button>
-            </div>
-        ),
-        sortable: false,
-    },
-];
+        {
+            name: 'Type',
+            selector: row => row.type,
+            cell: row => (row.type ? "Business" : "Personal"),
+            sortable: true,
+        },
+        {
+            name: 'Contact',
+            selector: row => row.contact,
+            sortable: true,
+        },
+        {
+            name: 'Action',
+            selector: row => row.action,
+            sortable: true,
+        },
+        {
+            name: 'Assignee',
+            selector: row => row.assignee,
+            sortable: true,
+        },
+        {
+            name: 'Bid Date',
+            selector: row => row.bidDate,
+            sortable: true,
+        },
+        {
+            name: 'Operation',
+            cell: row => (
+                <div className="d-flex justify-content-between">
+                    <Button variant="none" className="p-1" ><Link to={`/UpdateLead/${row.id}`} ><Icon icon="akar-icons:edit" width={"25px"} style={{ color: "dodgerblue" }} /></Link></Button>
+                    <Button variant="none" className="p-1" onClick={() => SetShow(row.id)} ><Icon icon="weui:delete-on-outlined" width={"25px"} style={{ color: " #d60000" }} /></Button>
+                    <Button variant="none" className="p-1" ><Icon icon="flowbite:download-outline" width={"25px"} style={{ color: "lightslategrey" }} /></Button>
+                </div>
+            ),
+            sortable: false,
+        },
+    ];
     return (
         <div>
             <div className="d-flex justify-content-between bg-secondary bg-opacity-10 px-4 py-4">
@@ -188,7 +143,7 @@ const columns = [
                     </Col>
                 </Row>
             </div>
-            <div className="p-4">
+            <div className="m-4 border border-1">
                 {isSuccess &&
                     <DataTable
                         columns={columns}
@@ -201,17 +156,19 @@ const columns = [
                     />
                 }
             </div>
-            <Modal show={show} onHide={handleClose} animation={false} timer={500} className="shadow-none">
+            <Modal show={show} onHide={() => SetShow(false)} animation={true} centered timer={500} className="shadow-none">
                 <Modal.Header>
                     <Modal.Title>Confirm Delete</Modal.Title>
-                    <Button variant='none' className="btn-close close-Button" aria-label="Close" onClick={handleClose} ></Button>
+                    <Button variant='none' className="btn-close close-Button" aria-label="Close" onClick={() => SetShow(false)} ></Button>
                 </Modal.Header>
                 <Modal.Body>Are you sure you want to delete this Data?</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="none" className='cancelButtonStyle' onClick={handleClose}>
+                    <Button variant="none" className='cancelButtonStyle' onClick={() => SetShow(false)}>
                         Cancel
                     </Button>
-                    <Button className="text-white bg-dark" variant="none" onClick={handleDelete} disabled={submit}> Delete</Button>
+                    <Button className="text-white bg-dark" variant="none" onClick={() => handleDelete(show)}>
+                        Delete
+                    </Button>
                 </Modal.Footer>
             </Modal>
 

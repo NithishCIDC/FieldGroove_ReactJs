@@ -1,4 +1,3 @@
-import React from "react";
 import { Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import '../../CSS/Header.css';
 import { Icon } from "@iconify/react/dist/iconify.js";
