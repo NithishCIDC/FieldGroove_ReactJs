@@ -29,7 +29,7 @@ export const accountFields = [
     { label: "First Name", name: "firstname", type: "text" },
     { label: "Last Name", name: "lastname", type: "text" },
     { label: "Company Name", name: "companyname", type: "text" },
-    { label: "Phone", name: "phone", type: "text" },
+    { label: "Phone", name: "phone", type: "tel"},
     { label: "Email", name: "email", type: "text" },
     { label: "Password", name: "password", type: "password" },
     { label: "Password Again", name: "passwordagain", type: "password" },
