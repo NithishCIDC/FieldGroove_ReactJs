@@ -5,6 +5,7 @@ import Sidebar from "../sidebar/Sidebar";
 import CreateLeadForm from "./CreateLeadForm";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import profile from "../../assets/images/profile.jpg"
+import { Link } from "react-router-dom";
 
 const CreateLead = () => {
     return (
@@ -25,7 +26,7 @@ const CreateLead = () => {
                         <div className="ps-3 border-bottom pt-2">
                             <nav>
                                 <ul className="hstack list-unstyled">
-                                    <li className="breadcrumb-item"><a href="#" className="fs-5 text-decoration-none">Leads</a></li>
+                                    <li className="breadcrumb-item"><Link to={"/Leads"} className="fs-5 text-decoration-none">Leads</Link></li>
                                     <li className="d-flex align-items-center"><Icon icon="ep:arrow-right" /></li>
                                     <li className="fs-5">Create Lead</li>
                                 </ul>

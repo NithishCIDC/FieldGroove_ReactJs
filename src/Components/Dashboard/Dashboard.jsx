@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import { Button, Col, Row } from "react-bootstrap";
 import Sidebar from "../sidebar/Sidebar";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
     return (
@@ -19,7 +20,7 @@ const Dashboard = () => {
                         <div><h2>Dashboard</h2></div>
                         <div className="hstack gap-3">
                             <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{ backgroundColor: "limegreen" }}>Start New Opportunity</Button>
-                            <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{ backgroundColor: "limegreen" }}>Add New Lead</Button>
+                            <Button variant="none" className="border-0 rounded-2 px-3 py-2 text-white" style={{ backgroundColor: "limegreen" }}><Link to="/CreateLead" className="text-decoration-none text-white"> Add New Lead </Link></Button>
                         </div>
                     </div>
                 </Col>

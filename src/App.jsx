@@ -8,6 +8,7 @@ import CreateLead from "./Components/CreateLead/CreateLead";
 import UpdateLead from "./Components/UpdateLead/UpdateLead";
 import Leads from "./Components/Leads/Leads";
 import WaitingActivation from "./Components/Account/Register/WaitingActivation";
+import PrivateRoute, { ReturnRouter } from "./Components/PrivateRouter/PrivateRouter";
 
 
 function App() {
@@ -15,13 +16,17 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/Account/Register" element={<Register />} />
-        <Route path="/Account/WaitingActivation" element={<WaitingActivation />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/CreateLead" element={<CreateLead />} />
-        <Route path="/UpdateLead/:id" element={<UpdateLead />} />
-        <Route path="/Leads" element={<Leads />} />
+        <Route element={<ReturnRouter />} >
+          <Route path="/" element={<Login />} />
+          <Route path="/Account/Register" element={<Register />} />
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/Account/WaitingActivation" element={<WaitingActivation />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/CreateLead" element={<CreateLead />} />
+          <Route path="/UpdateLead/:id" element={<UpdateLead />} />
+          <Route path="/Leads" element={<Leads />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
