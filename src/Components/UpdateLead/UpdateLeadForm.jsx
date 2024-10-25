@@ -40,7 +40,7 @@ const UpdateLeadForm = () => {
 
     const InitialValue = {
         id:data?.id,
-        Type:data?.type || false,
+        type:data?.type || false,
         projectName: data?.projectName || '',
         status:  data?.status || 'Contacted',
         contact: data?.contact || '',

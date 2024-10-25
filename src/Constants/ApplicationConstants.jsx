@@ -1,9 +1,12 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Modal } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useDeleteLeadsMutation } from "../redux/Slice";
+import { useState } from "react";
 // import { useGetLeadsQuery } from "../redux/Slice";
 
 // const {data} = useGetLeadsQuery();
+
 
 export const LoginConstant =
 {
@@ -56,65 +59,16 @@ export const formFields = [
     { name: "password", type: "password", label: "Password" },
 ];
 
-  export const LeadformFields = [
-        { type: 'text', placeholder: 'Search Leads...' },
-        { type: 'select', options: ['Select an Action', 'One', 'Two', 'Three'] },
-        { type: 'select', options: ['Select a Type', 'One', 'Two', 'Three'] },
-        { type: 'select', options: ['Select a Status', 'One', 'Two', 'Three'] },
-        { type: 'select', options: ['Select a Sales Person', 'One', 'Two', 'Three'] },
-    ];
-    export const columns = [
-        {
-            name: 'Project Name',
-            selector: row => row.projectName,
-            sortable: true,
-        },
-        {
-            name: 'Status',
-            selector: row => row.status,
-            sortable: true,
-        },
-        {
-            name: 'Added',
-            selector: row => row.added,
-            sortable: true,
-        },
-        {
-            name: 'Type',
-            selector: row => row.type,
-            cell: row => (row.type ? "Business" : "Personal"),
-            sortable: true,
-        },
-        {
-            name: 'Contact',
-            selector: row => row.contact,
-            sortable: true,
-        },
-        {
-            name: 'Action',
-            selector: row => row.action,
-            sortable: true,
-        },
-        {
-            name: 'Assignee',
-            selector: row => row.assignee,
-            sortable: true,
-        },
-        {
-            name: 'Bid Date',
-            selector: row => row.bidDate,
-            sortable: true,
-        },
-        {
-            name: 'Operation',
-            cell: row => (
-                <div className="d-flex justify-content-between">
-                    <Button variant="none" className="p-1" ><Link to={`/UpdateLead/${row.id}`} ><Icon icon="akar-icons:edit" width={"25px"} style={{color: "dodgerblue"}} /></Link></Button>
-                    <Button  variant="none" className="p-1" ><Icon icon="weui:delete-on-outlined" width={"25px"} style={{color: " #d60000"}} /></Button>
-                    <Button  variant="none" className="p-1" ><Icon icon="flowbite:download-outline"  width={"25px"} style={{color: "lightslategrey"}} /></Button>
-                </div>
-            ),
-            sortable: false,
-        },
-    ];
-    
+export const LeadformFields = [
+    { type: 'text', placeholder: 'Search Leads...' },
+    { type: 'select', options: ['Select an Action', 'One', 'Two', 'Three'] },
+    { type: 'select', options: ['Select a Type', 'One', 'Two', 'Three'] },
+    { type: 'select', options: ['Select a Status', 'One', 'Two', 'Three'] },
+    { type: 'select', options: ['Select a Sales Person', 'One', 'Two', 'Three'] },
+];
+
+
+
+
+
+
