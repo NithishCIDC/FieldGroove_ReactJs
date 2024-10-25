@@ -1,15 +1,27 @@
-import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
+
+
+const checkTokenExpiration = () => {
+    const token = sessionStorage.getItem('token');
+    if (!token) return false;
+
+    const  decodedJwt  = jwtDecode(token);
+    console.log(decodedJwt.exp);
+    if (Date.now() >= decodedJwt.exp * 1000) {
+        sessionStorage.removeItem('token'); 
+        return false;
+    }
+    return true;
+};
 
 const PrivateRoute = () => {
-    const token = !!sessionStorage.getItem('token');
-    return token ? <Outlet /> : <Navigate to="/" />;
+    const isTokenValid = checkTokenExpiration();
+    return isTokenValid ? <Outlet /> : <Navigate to="/" />;
 };
 
 export const ReturnRouter = () => {
-    const token = !!sessionStorage.getItem('token');
-    return !token ?  <Outlet /> : <Navigate to="/Dashboard" /> ;
+    const isTokenValid = checkTokenExpiration();
+    return !isTokenValid ? <Outlet /> : <Navigate to="/Dashboard" />;
 };
-
 export default PrivateRoute;
-
