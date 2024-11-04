@@ -122,7 +122,6 @@ const Login = () => {
           </Row>
         </Container>
       </div>
-
       <div>
         <Footer />
       </div>
