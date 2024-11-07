@@ -16,15 +16,15 @@ input {
 }
 .navStyle > li {
   cursor: pointer;
-}
-.navStyle > li:hover {
-  color: #f65a4d;
+  &&:hover {
+    color: #f65a4d;
+  }
 }
 .blueBtn {
   background-color: #3553ad !important;
-}
-.blueBtn:hover {
-  background-color: #f65a4d !important;
+  &&:hover {
+    background-color: #f65a4d !important;
+  }
 }
 .orangeBtn {
   background-color: #e56355 !important;
