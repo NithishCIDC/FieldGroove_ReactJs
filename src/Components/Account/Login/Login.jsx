@@ -17,7 +17,7 @@ const Login = () => {
   const handleValidation = async (values) => {
     try {
       await LoginValidation.validate(values, { abortEarly: false });
-      setformErrors({});
+      // setformErrors({});
       return true;
     } catch (error) {
       const formattedErrors = {};
@@ -46,9 +46,8 @@ const Login = () => {
                   setSubmitting(true);
                   const isValid = await handleValidation(values);
                   if (isValid) {
-                    console.log(values)
                     const res = await auth(values);
-                    res.error && setformErrors(["Internal Server Error"]);
+                    res.data.error && setformErrors([res.data.error]);
                     if (res.data.token) {
                       sessionStorage.setItem("token", res.data.token);
                       sessionStorage.setItem("user", JSON.stringify(res.data.user));
