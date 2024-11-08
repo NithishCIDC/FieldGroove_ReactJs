@@ -9,7 +9,7 @@ import { usePostRegisterMutation } from "../../../redux/Slice";
 
 
 const RegisterForm = () => {
-    const [register] = usePostRegisterMutation()
+    const [register, { isSuccess }] = usePostRegisterMutation()
     const navigate = useNavigate();
     const [formErrors, setformErrors] = useState();
     const [Index, setIndex] = useState(0);
@@ -37,8 +37,9 @@ const RegisterForm = () => {
                         setSubmitting(true);
                         const isValid = await handleValidation(values);
                         if (isValid) {
-                            await register(values);
-                            navigate('/Account/WaitingActivation');
+                            var response = await register(values);
+                            response.error.data && setformErrors([response.error.data]);
+                            isSuccess && navigate('/Account/WaitingActivation');
                         }
                     }}
                 >

@@ -17,7 +17,7 @@ const Login = () => {
   const handleValidation = async (values) => {
     try {
       await LoginValidation.validate(values, { abortEarly: false });
-      setformErrors({});
+      // setformErrors({});
       return true;
     } catch (error) {
       const formattedErrors = {};
@@ -46,8 +46,8 @@ const Login = () => {
                   setSubmitting(true);
                   const isValid = await handleValidation(values);
                   if (isValid) {
-                    console.log(values)
                     const res = await auth(values);
+                    res.data.error && setformErrors([res.data.error]);
                     if (res.data.token) {
                       sessionStorage.setItem("token", res.data.token);
                       sessionStorage.setItem("user", JSON.stringify(res.data.user));
@@ -99,9 +99,9 @@ const Login = () => {
             <Col className="Logincol2 p-5">
               <div>
                 {formErrors != null && (
-                  <ul className="m-0">
+                  <ul className="m-0 ps-3">
                     {Object.entries(formErrors).map(([key, value]) => (
-                      <li key={key} className='errorStyle mb-1'>{value}</li>
+                      <li key={key} className='errorStyle mb-1 p-0'>{value}</li>
                     ))}
                   </ul>
                 )}
@@ -122,7 +122,6 @@ const Login = () => {
           </Row>
         </Container>
       </div>
-
       <div>
         <Footer />
       </div>

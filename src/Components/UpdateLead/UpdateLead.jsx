@@ -5,9 +5,10 @@ import Header from "../Header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import profile from "../../assets/images/profile.jpg"
+import { Link } from "react-router-dom";
 
-const UpdateLead = () =>{
-    return(
+const UpdateLead = () => {
+    return (
         <div className="d-flex flex-column min-vh-100">
             <Row className="m-0 p-0 sticky-top d-flex">
                 <Header />
@@ -18,26 +19,26 @@ const UpdateLead = () =>{
                     <Sidebar />
                 </Col>
                 <Col className="p-0 m-0">
-                     <div className="border">
+                    <div className="border">
                         <div className="d-flex align-items-center ps-3 border-bottom" style={{ height: "100px" }}>
                             <h1>Update Lead</h1>
                         </div>
                         <div className="ps-3 border-bottom pt-2">
                             <nav>
                                 <ul className="hstack list-unstyled">
-                                    <li className="breadcrumb-item"><a href="#" className="fs-5 text-decoration-none">Leads</a></li>
+                                    <li className="breadcrumb-item"><Link to="/Leads" className="fs-5 text-decoration-none">Leads</Link></li>
                                     <li className="d-flex align-items-center"><Icon icon="ep:arrow-right" /></li>
                                     <li className="fs-5">Update Lead</li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                   <UpdateLeadForm /> 
+                    <UpdateLeadForm />
 
-               </Col>
-                  <Col xs={3} className="d-flex flew-column">
-                  <div className="mx-2 my-3 border-1 flex-fill" style={{ border: "dashed" }}>
-                         <Row className="m-0 p-3 border">
+                </Col>
+                <Col xs={3} className="d-flex flew-column">
+                    <div className="mx-2 my-3 border-1 flex-fill" style={{ border: "dashed" }}>
+                        <Row className="m-0 p-3 border">
                             <Col xs={5} className="border p-0">
                                 <div className="border m-2">
                                     <img src={profile} alt="profile" width={"100px"} />
@@ -45,8 +46,8 @@ const UpdateLead = () =>{
                             </Col>
                             <Col xs={7} className="border">
                                 <div className="my-2">
-                                     <Form.Group>
-                                        <Form.Control as="textarea" className="w-100 shadow-none border-black" placeholder="Start the discussion by entering a note..." style={{ minHeight: '100px', outline: 'none' }}/>
+                                    <Form.Group>
+                                        <Form.Control as="textarea" className="w-100 shadow-none border-black" placeholder="Start the discussion by entering a note..." style={{ minHeight: '100px', outline: 'none' }} />
                                     </Form.Group>
                                     <div className="float-end">
                                         <Button variant="none" className="text-white my-2" style={{ backgroundColor: '#3e89db' }}> Save </Button>
@@ -57,7 +58,7 @@ const UpdateLead = () =>{
                     </div>
                 </Col>
 
-            </Row> 
+            </Row>
         </div>
     );
 }

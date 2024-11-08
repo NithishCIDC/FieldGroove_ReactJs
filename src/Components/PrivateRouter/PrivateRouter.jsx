@@ -6,10 +6,10 @@ const checkTokenExpiration = () => {
     const token = sessionStorage.getItem('token');
     if (!token) return false;
 
-    const  decodedJwt  = jwtDecode(token);
-    console.log(decodedJwt.exp);
+    const decodedJwt = jwtDecode(token);
+    console.log(new Date(decodedJwt.exp * 1000).toString());
     if (Date.now() >= decodedJwt.exp * 1000) {
-        sessionStorage.removeItem('token'); 
+        sessionStorage.removeItem('token');
         return false;
     }
     return true;
