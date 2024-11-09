@@ -42,7 +42,7 @@ const CreateLeadForm = () => {
     };
 
     const InitialValue = {
-        Type:false,
+        type:false,
         projectName: '',
         status: 'Contacted',
         contact: '',
