@@ -1,10 +1,9 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Col, Form, Row, Tab, Table, Tabs } from "react-bootstrap";
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate, useParams } from "react-router-dom";
-import { useGetidLeadsQuery, usePostLeadsMutation, usePutLeadsMutation } from "../../redux/Slice";
+import { useNavigate } from "react-router-dom";
+import { usePostLeadsMutation } from "../../redux/Slice";
 
 
 const validationSchema = Yup.object().shape({
@@ -16,33 +15,33 @@ const validationSchema = Yup.object().shape({
     bidDate: Yup.date().required('Bid Date is required').nullable(),
 });
 const CreateLeadForm = () => {
-    const [submit , setSubmit] = useState(false);
+    const [submit, setSubmit] = useState(false);
     const nav = useNavigate();
 
-    const [postItem] = usePostLeadsMutation(); 
+    const [postItem] = usePostLeadsMutation();
 
     const handleSubmit = async (values) => {
         console.log('Form data:', values);
-        try{
+        try {
             setSubmit(true);
             await postItem(values).unwrap();
             // Swal.fire({ position: "top-center", icon: "success", title: "saved", showConfirmButton: false, timer: 1500 });
-            nav('/Leads');    
+            nav('/Leads');
         }
-        catch(e) {
+        catch (e) {
             setSubmit(true);
             console.error(e);
             // Swal.fire({ position: "top-center", icon: "danger",
             //     title: "Try again", showConfirmButton: false, timer: 1500 });
-         }
-         finally{
+        }
+        finally {
             setSubmit(false);
-         }
-       
+        }
+
     };
 
     const InitialValue = {
-        type:false,
+        type:false, 
         projectName: '',
         status: 'Contacted',
         contact: '',
@@ -135,7 +134,7 @@ const CreateLeadForm = () => {
                                         </Form.Group>
                                     </Col>
                                 </Row>
-                      
+
                                 {/* Contact Information Table */}
                                 <Row>
                                     <Col md={2}>Contact Information</Col>
