@@ -9,7 +9,6 @@ const Header = () => {
         <div className="p-0">
 
             <Navbar expand="lg" className="headerColor p-0 m-0">
-                <div className="vr"></div>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll" >
                     <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll >
