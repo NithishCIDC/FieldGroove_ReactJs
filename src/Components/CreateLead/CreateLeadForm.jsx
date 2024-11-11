@@ -41,7 +41,7 @@ const CreateLeadForm = () => {
     };
 
     const InitialValue = {
-        type:false, 
+        Type:false, 
         projectName: '',
         status: 'Contacted',
         contact: '',
@@ -50,10 +50,10 @@ const CreateLeadForm = () => {
         bidDate: '',
     };
 
-
     return (
 
         <div className=" p-3 border">
+            
             <Tabs
                 defaultActiveKey="Lead Information"
                 id="uncontrolled-tab-example"
@@ -74,7 +74,7 @@ const CreateLeadForm = () => {
                                             name="Type"
                                             type="checkbox"
                                             label="Business Account"
-                                            checked={values.type}
+                                            checked={values.Type}
                                             onChange={handleChange}
                                         />
                                     </Col>
