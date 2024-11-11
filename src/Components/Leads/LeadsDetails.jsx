@@ -151,7 +151,6 @@ const LeadsDetails = () => {
                         data={data.data}
                         pagination
                         fixedHeader
-                        fixedHeaderScrollHeight="300px"
                         highlightOnHover
                         customStyles={customStyles}
                     />
