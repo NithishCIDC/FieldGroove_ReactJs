@@ -53,7 +53,7 @@ const Sidebar = () => {
                 <span className="side-bar-font my-1">Super Admin</span>
             </div>
             <div className="d-flex flex-column align-items-center mt-4">
-                <Icon onClick={NavigateLogin} icon="tabler:logout-2" style={{ color: "gray" }} width={"40"} height={"40"} />
+                <Icon onClick={NavigateLogin} icon="tabler:logout-2" style={{ color: "gray", cursor: "pointer" }} width={"40"} height={"40"} />
                 <span className="side-bar-font my-1">Logout</span>
             </div>
         </div>
