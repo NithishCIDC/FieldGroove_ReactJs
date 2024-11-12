@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Form, Row, Tab, Table, Tabs } from "react-bootstrap";
+import { Button, Col, Form, Row, Spinner, Tab, Table, Tabs } from "react-bootstrap";
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,7 @@ const CreateLeadForm = () => {
     };
 
     const InitialValue = {
-        Type:false, 
+        Type: false,
         projectName: '',
         status: 'Contacted',
         contact: '',
@@ -51,9 +51,7 @@ const CreateLeadForm = () => {
     };
 
     return (
-
         <div className=" p-3 border">
-            
             <Tabs
                 defaultActiveKey="Lead Information"
                 id="uncontrolled-tab-example"
@@ -334,8 +332,8 @@ const CreateLeadForm = () => {
                                 <hr />
                                 <Row>
                                     <Col className="text-end">
-                                        <Button type="submit" className="me-2" variant="primary">
-                                            Save
+                                        <Button type="submit" className="me-2" variant="primary" style={{ width: "60px" }}>
+                                            {submit ? <Spinner animation="border" role="status" size="sm" /> : "Save"}
                                         </Button>
                                         <Button variant="primary" className="me-2">
                                             Save & Convert to Opportunity
@@ -358,7 +356,7 @@ const CreateLeadForm = () => {
                 </Tab>
             </Tabs>
         </div>
-    );
+    )
 }
 
 export default CreateLeadForm;

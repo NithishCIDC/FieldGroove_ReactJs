@@ -88,8 +88,7 @@ const Login = () => {
                         onSubmit={handleSubmit}
                         disabled={isSubmitting}
                       >
-                        <span>Sign In <Spinner animation="border" role="status" /></span>{" "}
-                        <MdOutlineKeyboardArrowRight className="fs-4 " />
+                        <span>Sign In{isSubmitting ? <Spinner animation="border" role="status" size="sm" className="ms-2" /> : <MdOutlineKeyboardArrowRight className="fs-4" style={{ marginBottom: "1px" }} />} </span>
                       </Button>
                     </div>
                   </FormikForm>
