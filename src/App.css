@@ -64,6 +64,13 @@ input {
 .sidebgColor {
   background-color: #e8e8e8;
 }
+.side-bar-font {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  color: black;
+}
 .formRegister .form-control {
   border-radius: 0;
 }
@@ -128,4 +135,16 @@ input {
 .errorStyle {
   font-size: 14px;
   color: rgb(201, 0, 0);
+}
+.fc-license-message {
+  display: none;
+}
+.fc-button {
+  box-shadow: none !important;
+}
+.fc-daygrid-day-number {
+  color: #182346;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none !important;
 }

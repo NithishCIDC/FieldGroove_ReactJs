@@ -9,7 +9,7 @@ import UpdateLead from "./Components/UpdateLead/UpdateLead";
 import Leads from "./Components/Leads/Leads";
 import WaitingActivation from "./Components/Account/Register/WaitingActivation";
 import PrivateRoute, { ReturnRouter } from "./Components/PrivateRouter/PrivateRouter";
-
+import Calendar from "./Components/Calendar/Calendar";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
           <Route path="/CreateLead" element={<CreateLead />} />
           <Route path="/UpdateLead/:id" element={<UpdateLead />} />
           <Route path="/Leads" element={<Leads />} />
+          <Route path="/Calendar" element={<Calendar />} />
         </Route>
       </Routes>
     </BrowserRouter>

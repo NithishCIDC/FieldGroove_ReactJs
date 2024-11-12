@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "../../CSS/Sidebar.css"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Sidebar = () => {
@@ -28,10 +28,10 @@ const Sidebar = () => {
                 <Icon icon="pajamas:task-done" style={{ color: "gray" }} width={"40"} height={"40"} />
                 <span className="side-bar-font my-1">Tasks</span>
             </div>
-            <div className="d-flex flex-column align-items-center mt-4">
+            <Link to="/Calendar" className="d-flex flex-column align-items-center mt-4 text-decoration-none">
                 <Icon icon="uil:calender" style={{ color: "gray" }} width={"40"} height={"40"} />
                 <span className="side-bar-font my-1">Calender</span>
-            </div>
+            </Link>
             <div className="d-flex flex-column align-items-center mt-4">
                 <Icon icon="mdi:chart-bar" style={{ color: "gray" }} width={"40"} height={"40"} />
                 <span className="side-bar-font my-1">Reports</span>
