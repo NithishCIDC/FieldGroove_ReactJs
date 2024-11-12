@@ -1,5 +1,5 @@
 import Footer from "../AccountFooter";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import AccountHeader from "../AccountHeader";
 import { Link, useNavigate } from "react-router-dom";
@@ -88,7 +88,7 @@ const Login = () => {
                         onSubmit={handleSubmit}
                         disabled={isSubmitting}
                       >
-                        <span>Sign In</span>{" "}
+                        <span>Sign In <Spinner animation="border" role="status" /></span>{" "}
                         <MdOutlineKeyboardArrowRight className="fs-4 " />
                       </Button>
                     </div>

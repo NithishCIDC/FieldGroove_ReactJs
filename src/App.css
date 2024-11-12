@@ -148,3 +148,9 @@ input {
   font-size: 18px;
   text-decoration: none !important;
 }
+.fc-col-header-cell-cushion {
+  color: #2c3d4f;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none !important;
+}
