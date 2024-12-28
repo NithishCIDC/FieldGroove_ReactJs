@@ -24,7 +24,7 @@ const CreateLeadForm = () => {
         console.log('Form data:', values);
         try {
             setSubmit(true);
-            await postItem(values).unwrap();
+            await postItem(values);
             // Swal.fire({ position: "top-center", icon: "success", title: "saved", showConfirmButton: false, timer: 1500 });
             nav('/Leads');
         }
